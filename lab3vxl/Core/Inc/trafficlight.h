@@ -8,6 +8,7 @@
 #ifndef INC_TRAFFICLIGHT_H_
 #define INC_TRAFFICLIGHT_H_
 #include "main.h"
+#include "7seg_display.h"
 
 
 

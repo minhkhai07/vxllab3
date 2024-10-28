@@ -24,6 +24,8 @@
 /* USER CODE BEGIN Includes */
 #include "Timer.h"
 #include "Button.h"
+#include "ledblink.h"
+#include "global.h"
 
 /* USER CODE END Includes */
 
@@ -99,15 +101,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-//	  if(isButton1Pressed(0))
-//	  {
-//		  HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
-//	  }
-	  if(isButton1Pressed(1))
-	  	  {
-	  		  HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
-	  	  }
-
+	  fsm_auto_run();
+	  run_ledblink();
 
     /* USER CODE BEGIN 3 */
   }

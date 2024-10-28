@@ -1,5 +1,6 @@
-Core/Src/trafficlight.o: ../Core/Src/trafficlight.c \
- ../Core/Inc/trafficlight.h ../Core/Inc/main.h \
+Core/Src/ledblink.o: ../Core/Src/ledblink.c ../Core/Inc/ledblink.h \
+ ../Core/Inc/Timer.h ../Core/Inc/fsm_auto.h ../Core/Inc/global.h \
+ ../Core/Inc/Button.h ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -24,9 +25,18 @@ Core/Src/trafficlight.o: ../Core/Src/trafficlight.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Core/Inc/7seg_display.h
+ ../Core/Inc/trafficlight.h ../Core/Inc/7seg_display.h \
+ ../Core/Inc/ledblink.h
 
-../Core/Inc/trafficlight.h:
+../Core/Inc/ledblink.h:
+
+../Core/Inc/Timer.h:
+
+../Core/Inc/fsm_auto.h:
+
+../Core/Inc/global.h:
+
+../Core/Inc/Button.h:
 
 ../Core/Inc/main.h:
 
@@ -78,4 +88,8 @@ Core/Src/trafficlight.o: ../Core/Src/trafficlight.c \
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 
+../Core/Inc/trafficlight.h:
+
 ../Core/Inc/7seg_display.h:
+
+../Core/Inc/ledblink.h:

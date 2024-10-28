@@ -5,8 +5,8 @@
  *      Author: Admin
  */
 #include "7seg_display.h"
-int ledNB;
-int ledDT;
+int led_NB;
+int led_DT;
 int led_Tg;
 void display7SEG_NB(int num) {
   uint8_t segmentPattern[] = {

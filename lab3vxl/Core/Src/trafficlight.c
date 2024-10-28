@@ -9,6 +9,8 @@
 // 3(Đ)-4(V)-6(X) ĐT
 
 void redgreen_state(void){
+	led_NB=5;
+	led_DT=3;
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
@@ -17,6 +19,7 @@ void redgreen_state(void){
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
 }
 void redyellow_state(void){
+	led_DT=2;
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
@@ -25,6 +28,8 @@ void redyellow_state(void){
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
 }
 void greenred_state(void){
+	led_NB=3;
+	led_DT=5;
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
@@ -33,6 +38,7 @@ void greenred_state(void){
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
 }
 void yellowred_state(void){
+	led_NB=2;
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin (GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
