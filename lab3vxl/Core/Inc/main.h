@@ -32,9 +32,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
 /* USER CODE END Includes */
-
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 
@@ -60,6 +58,10 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define BUTTON_Pin GPIO_PIN_13
 #define BUTTON_GPIO_Port GPIOC
+#define BUTTON1_Pin GPIO_PIN_14
+#define BUTTON1_GPIO_Port GPIOC
+#define BUTTON2_Pin GPIO_PIN_15
+#define BUTTON2_GPIO_Port GPIOC
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
