@@ -98,6 +98,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+ setTimer(0,300);
+ setTimer(1,100);
+ status=cd1;
   while (1)
   {
     /* USER CODE END WHILE */

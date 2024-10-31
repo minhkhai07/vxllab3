@@ -80,5 +80,16 @@ void display7SEG_Tg(int num) {
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_14, (pattern & 0x20) ? GPIO_PIN_RESET : GPIO_PIN_SET); // F
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_15, (pattern & 0x40) ? GPIO_PIN_RESET : GPIO_PIN_SET); //G
   }
-
+void displayNB_showTime(int time) {
+    display7SEG_Tg(time/10);
+    display7SEG_NB(time%10);
+}
+void displayDT_showTime(int time) {
+    display7SEG_Tg(time/10);
+    display7SEG_DT(time%10);
+}
+void display_showMode(int mode) {
+    display7SEG_Tg(mode/10);
+    display7SEG_DT(mode%10);
+}
 

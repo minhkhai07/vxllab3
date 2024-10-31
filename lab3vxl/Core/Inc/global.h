@@ -11,8 +11,7 @@
 #include "Button.h"
 #include "main.h"
 #include "trafficlight.h"
-
-#define INIT			5
+#include "7seg_display.h"
 #define cd1				6
 #define cd2				7
 #define cd3				8
@@ -23,5 +22,4 @@
 #define MODE_4			4
 
 extern int status;
-
 #endif /* INC_GLOBAL_H_ */
