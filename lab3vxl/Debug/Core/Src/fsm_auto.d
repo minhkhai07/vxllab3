@@ -24,8 +24,7 @@ Core/Src/fsm_auto.o: ../Core/Src/fsm_auto.c ../Core/Inc/fsm_auto.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Core/Inc/trafficlight.h ../Core/Inc/7seg_display.h \
- ../Core/Inc/ledblink.h ../Core/Inc/fsm_auto.h
+ ../Core/Inc/trafficlight.h ../Core/Inc/7seg_display.h
 
 ../Core/Inc/fsm_auto.h:
 
@@ -88,7 +87,3 @@ Core/Src/fsm_auto.o: ../Core/Src/fsm_auto.c ../Core/Inc/fsm_auto.h \
 ../Core/Inc/trafficlight.h:
 
 ../Core/Inc/7seg_display.h:
-
-../Core/Inc/ledblink.h:
-
-../Core/Inc/fsm_auto.h:

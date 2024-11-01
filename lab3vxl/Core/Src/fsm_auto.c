@@ -6,93 +6,97 @@
  */
 #include "fsm_auto.h"
 int status;
+int t_red;
+int t_yellow;
+int t_green;
 void fsm_auto_run(){
 	switch(status)
 	{
 	case cd1:
-				if(Timer_Flag[0])
-				{
-					redgreen_state();
-					displayNB_showTime(led_NB--);
-					displayDT_showTime(led_DT--);
-					setTimer(0,100);
+			redgreen_state();
+			if(Timer_Flag[0])
+			{
+				displayNB_showTime(led_NB--);
+				displayDT_showTime(led_DT--);
+				setTimer(0,1000);
+			}
+			if(Timer_Flag[1]){
+				led_DT=2;
+				setTimer(1,2000);
+				status=cd2;
 				}
-				if(Timer_Flag[1]){
-					led_DT=2;
-					setTimer(1,200);
-					status=cd2;
-				}
-				if(isButton1Pressed(0))
-				{
-					status=MODE_2;
-					display_showMode(MODE_2);
-				}
-				break;
+			if(isButton1Pressed(0))
+			{
+				status=MODE_2;
+				display_showMode(MODE_2);
+			}
+			break;
 	case cd2:
-				redyellow_state();
-				if(Timer_Flag[0])
-				{
-					displayDT_showTime(led_DT--);
-					displayNB_showTime(led_NB--);
-					setTimer(0,100);
-				}
-				if(Timer_Flag[1]){
-					led_NB=3;
-					led_DT=5;
-					setTimer(1,300);
-					status=cd3;
-				}
-				if(isButton1Pressed(0))
-				{
-					status=MODE_2;
-					display_showMode(MODE_2);
-				}
-				break;
+			redyellow_state();
+			if(Timer_Flag[0])
+			{
+				displayDT_showTime(led_DT--);
+				displayNB_showTime(led_NB--);
+				setTimer(0,1000);
+			}
+			if(Timer_Flag[1]){
+				led_NB=3;
+				led_DT=5;
+				setTimer(1,3000);
+				status=cd3;
+			}
+			if(isButton1Pressed(0))
+			{
+				status=MODE_2;
+				display_showMode(MODE_2);
+			}
+			break;
 	case cd3:
-				greenred_state();
-				if(Timer_Flag[0])
-				{
-					displayNB_showTime(led_NB--);
-					displayDT_showTime(led_DT--);
-					setTimer(0,100);
-				}
-				if(Timer_Flag[1]){
-					led_NB=2;
-					setTimer(1,200);
-					status=cd4;
-				}
-				if(isButton1Pressed(0))
-					{
-						status=MODE_2;
-						display_showMode(MODE_2);
-					}
-				break;
+			greenred_state();
+			if(Timer_Flag[0])
+			{
+				displayNB_showTime(led_NB--);
+				displayDT_showTime(led_DT--);
+				setTimer(0,1000);
+			}
+			if(Timer_Flag[1]){
+				led_NB=2;
+				setTimer(1,2000);
+				status=cd4;
+			}
+			if(isButton1Pressed(0))
+			{
+				status=MODE_2;
+				display_showMode(MODE_2);
+			}
+			break;
 	case cd4:
-				yellowred_state();
-				if(Timer_Flag[0])
-				{
-					displayNB_showTime(led_NB--);
-					displayDT_showTime(led_DT--);
-					setTimer(0,100);
-				}
-				if(Timer_Flag[1]){
-					led_NB=5;
-					led_DT=3;
-					setTimer(1,300);
-					status=cd1;
-				}
-				if(isButton1Pressed(0))
-				{
-					status=MODE_2;
-					display_showMode(MODE_2);
-				}
-				break;
-
+			yellowred_state();
+			if(Timer_Flag[0])
+			{
+				displayNB_showTime(led_NB--);
+				displayDT_showTime(led_DT--);
+				setTimer(0,1000);
+			}
+			if(Timer_Flag[1]){
+				led_NB=5;
+				led_DT=3;
+				setTimer(0,0);
+				setTimer(1,3000);
+				status=cd1;
+			}
+			if(isButton1Pressed(0))
+			{
+				status=MODE_2;
+				display_showMode(MODE_2);
+			}
+			break;
 	case MODE_2:
+		run_ledblink();
 		if(isButton1Pressed(1))
 		{
-			t_red++;
 
+			t_red++;
 			if(t_red>99)
 			{
 				t_red=0;
@@ -106,13 +110,14 @@ void fsm_auto_run(){
 		}
 		if(isButton1Pressed(2))
 		{
+			led_NB=t_red;
 			t_red=0;
 			displayNB_showTime(t_red);
 		}
 		break;
 
 	case MODE_3:
-
+		run_ledblink();
 		if(isButton1Pressed(1))
 
 		{
@@ -130,11 +135,13 @@ void fsm_auto_run(){
 		}
 		if(isButton1Pressed(2))
 		{
+			led_DT=t_yellow;
 			t_yellow=0;
 			displayNB_showTime(t_yellow);
 		}
 		break;
 	case MODE_4:
+		run_ledblink();
 		if(isButton1Pressed(1))
 		{
 			t_green++;
@@ -150,7 +157,8 @@ void fsm_auto_run(){
 		}
 		if(isButton1Pressed(2))
 		{
-			t_yellow=0;
+			led_DT=t_green;
+			t_green=0;
 			displayNB_showTime(t_green);
 		}
 		break;
@@ -158,5 +166,18 @@ void fsm_auto_run(){
 		break;
 	}
 }
+void run_ledblink(){
+if(Timer_Flag[2])
+	{
+			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_0);
+			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_3);
+			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
+			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_4);
+			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_2);
+			HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
+			setTimer(2,500);
+	}
+}
+
 
 

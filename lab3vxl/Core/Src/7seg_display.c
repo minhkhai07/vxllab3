@@ -89,7 +89,7 @@ void displayDT_showTime(int time) {
     display7SEG_DT(time%10);
 }
 void display_showMode(int mode) {
-    display7SEG_Tg(mode/10);
+    display7SEG_Tg(mode/100);
     display7SEG_DT(mode%10);
 }
 

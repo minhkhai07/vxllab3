@@ -16,7 +16,7 @@ void redgreen_state(void);
 void redyellow_state(void);
 void greenred_state(void);
 void yellowred_state(void);
-
+void clearleds(void);
 
 
 #endif /* INC_TRAFFICLIGHT_H_ */
