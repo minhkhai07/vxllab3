@@ -103,7 +103,6 @@ int main(void)
   setTimer(1,3000);
   status=cd1;
   setTimer(3,100);
-
   while (1)
   {
     /* USER CODE END WHILE */
@@ -113,6 +112,7 @@ int main(void)
 		  setTimer(3,100);
 	  }
 	  fsm_auto_run();
+	  fsm_set();
 
     /* USER CODE BEGIN 3 */
   }

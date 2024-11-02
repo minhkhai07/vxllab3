@@ -21,8 +21,15 @@
 #define MODE_3			3
 #define MODE_4			4
 
+#define mode1			9
+#define mode2			10
+#define mode3			11
+#define mode4			12
+extern int status;
 extern int t_red;
 extern int t_yellow;
 extern int t_green;
-extern int status;
+extern int a;
+extern int b;
+extern int c;
 #endif /* INC_GLOBAL_H_ */

@@ -9,6 +9,7 @@ int status;
 int t_red;
 int t_yellow;
 int t_green;
+int a,b,c;
 void fsm_auto_run(){
 	switch(status)
 	{
@@ -110,9 +111,7 @@ void fsm_auto_run(){
 		}
 		if(isButton1Pressed(2))
 		{
-			led_NB=t_red;
-			t_red=0;
-			displayNB_showTime(t_red);
+			a=t_red;
 		}
 		break;
 
@@ -126,6 +125,7 @@ void fsm_auto_run(){
 			{
 				t_yellow=0;
 			}
+
 			displayNB_showTime(t_yellow);
 		}
 		if(isButton1Pressed(0))
@@ -135,9 +135,9 @@ void fsm_auto_run(){
 		}
 		if(isButton1Pressed(2))
 		{
-			led_DT=t_yellow;
-			t_yellow=0;
-			displayNB_showTime(t_yellow);
+			b=t_yellow;
+
+
 		}
 		break;
 	case MODE_4:
@@ -149,23 +149,27 @@ void fsm_auto_run(){
 			{
 				t_green=0;
 			}
+
 			displayNB_showTime(t_green);
 		}
 		if(isButton1Pressed(0))
 		{
-			status=cd1;
+
+			status=mode1;
+			setTimer(4,0);
+			setTimer(5,c*1000);
+
 		}
 		if(isButton1Pressed(2))
 		{
-			led_DT=t_green;
-			t_green=0;
-			displayNB_showTime(t_green);
+			c = t_green;
 		}
 		break;
 	default:
 		break;
 	}
 }
+
 void run_ledblink(){
 if(Timer_Flag[2])
 	{
@@ -178,6 +182,4 @@ if(Timer_Flag[2])
 			setTimer(2,500);
 	}
 }
-
-
 
