@@ -154,7 +154,6 @@ void fsm_auto_run(){
 		}
 		if(isButton1Pressed(0))
 		{
-
 			status=mode1;
 			setTimer(4,0);
 			setTimer(5,c*1000);
