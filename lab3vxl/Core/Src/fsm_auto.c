@@ -17,8 +17,10 @@ void fsm_auto_run(){
 			redgreen_state();
 			if(Timer_Flag[0])
 			{
-				displayNB_showTime(led_NB--);
-				displayDT_showTime(led_DT--);
+				updateLedBuffer(5);
+				quet_7SEG();
+				led_NB--;
+				led_DT--;
 				setTimer(0,1000);
 			}
 			if(Timer_Flag[1]){
@@ -29,15 +31,17 @@ void fsm_auto_run(){
 			if(isButton1Pressed(0))
 			{
 				status=MODE_2;
-				display_showMode(MODE_2);
 			}
 			break;
 	case cd2:
 			redyellow_state();
+
 			if(Timer_Flag[0])
 			{
-				displayDT_showTime(led_DT--);
-				displayNB_showTime(led_NB--);
+				updateLedBuffer(6);
+				quet_7SEG();
+				led_NB--;
+				led_DT--;
 				setTimer(0,1000);
 			}
 			if(Timer_Flag[1]){
@@ -49,15 +53,17 @@ void fsm_auto_run(){
 			if(isButton1Pressed(0))
 			{
 				status=MODE_2;
-				display_showMode(MODE_2);
 			}
 			break;
 	case cd3:
 			greenred_state();
+
 			if(Timer_Flag[0])
 			{
-				displayNB_showTime(led_NB--);
-				displayDT_showTime(led_DT--);
+				updateLedBuffer(7);
+				quet_7SEG();
+				led_NB--;
+				led_DT--;
 				setTimer(0,1000);
 			}
 			if(Timer_Flag[1]){
@@ -68,15 +74,17 @@ void fsm_auto_run(){
 			if(isButton1Pressed(0))
 			{
 				status=MODE_2;
-				display_showMode(MODE_2);
 			}
 			break;
 	case cd4:
 			yellowred_state();
+
 			if(Timer_Flag[0])
 			{
-				displayNB_showTime(led_NB--);
-				displayDT_showTime(led_DT--);
+				updateLedBuffer(8);
+				quet_7SEG();
+				led_NB--;
+				led_DT--;
 				setTimer(0,1000);
 			}
 			if(Timer_Flag[1]){
@@ -89,25 +97,25 @@ void fsm_auto_run(){
 			if(isButton1Pressed(0))
 			{
 				status=MODE_2;
-				display_showMode(MODE_2);
 			}
 			break;
 	case MODE_2:
 		run_ledblink();
+
 		if(isButton1Pressed(1))
 		{
 
 			t_red++;
 			if(t_red>99)
 			{
-				t_red=0;
+				t_red=1;
 			}
-			displayNB_showTime(t_red);
+			updateLedBuffer(2);
+			quet_7SEG();
 		}
 		if(isButton1Pressed(0))
 		{
 			status=MODE_3;
-			display_showMode(MODE_3);
 		}
 		if(isButton1Pressed(2))
 		{
@@ -117,31 +125,30 @@ void fsm_auto_run(){
 
 	case MODE_3:
 		run_ledblink();
+
 		if(isButton1Pressed(1))
 
 		{
 			t_yellow++;
 			if(t_yellow>99)
 			{
-				t_yellow=0;
+				t_yellow=1;
 			}
-
-			displayNB_showTime(t_yellow);
+			updateLedBuffer(3);
+			quet_7SEG();
 		}
 		if(isButton1Pressed(0))
 		{
 			status=MODE_4;
-			display_showMode(MODE_4);
 		}
 		if(isButton1Pressed(2))
 		{
 			b=t_yellow;
-
-
 		}
 		break;
 	case MODE_4:
 		run_ledblink();
+
 		if(isButton1Pressed(1))
 		{
 			t_green++;
@@ -149,8 +156,8 @@ void fsm_auto_run(){
 			{
 				t_green=0;
 			}
-
-			displayNB_showTime(t_green);
+			updateLedBuffer(4);
+			quet_7SEG();
 		}
 		if(isButton1Pressed(0))
 		{

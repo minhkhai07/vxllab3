@@ -1,6 +1,4 @@
-7seg_display.c:11:6:display7SEG_NB	32	static
-7seg_display.c:35:6:display7SEG_DT	32	static
-7seg_display.c:59:6:display7SEG_Tg	32	static
-7seg_display.c:83:6:displayNB_showTime	16	static
-7seg_display.c:87:6:displayDT_showTime	16	static
-7seg_display.c:91:6:display_showMode	16	static
+7seg_display.c:15:6:display7SEG_NB	32	static
+7seg_display.c:39:6:update_7seg	16	static
+7seg_display.c:78:6:quet_7SEG	8	static
+7seg_display.c:86:6:updateLedBuffer	16	static

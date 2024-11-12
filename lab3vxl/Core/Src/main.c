@@ -109,11 +109,11 @@ int main(void)
 	  if(Timer_Flag[3])
 	  {
 		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-		  setTimer(3,100);
+		  setTimer(3,1000);
 	  }
+	  quet_7SEG();
 	  fsm_auto_run();
 	  fsm_set();
-
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

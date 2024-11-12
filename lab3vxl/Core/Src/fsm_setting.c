@@ -11,26 +11,32 @@ void fsm_set()
 	{
 	case mode1:
 	        redgreen_state();
+
 	    if(Timer_Flag[4]){
-	        displayNB_showTime(a--);
-	        displayDT_showTime(c--);
+	    	updateLedBuffer(9);
+	    	quet_7SEG();
+	    	a--;
+	    	c--;
 	        setTimer(4, 1000);
 	    }
 	    if(Timer_Flag[5]){
 	        setTimer(5,b*1000);
 	        status = mode2;
 	    }
-	    if (isButton1Pressed(0)) {
+	    if (isButton1Pressed(0)){
 	        status = MODE_2;
-	        display_showMode(MODE_2);
 	    }
 	    break;
 
 	case mode2:
+		c=t_yellow;
 	    redyellow_state();
+
 	    if(Timer_Flag[4]){
-	        displayNB_showTime(a--);
-	        displayDT_showTime(b--);
+	    	updateLedBuffer(10);
+	    	quet_7SEG();
+	    	a--;
+	    	c--;
 	        setTimer(4,1000);
 	    }
 	    if(Timer_Flag[5]){
@@ -41,33 +47,37 @@ void fsm_set()
 	    }
 	    if (isButton1Pressed(0)) {
 	        status = MODE_2;
-	        display_showMode(MODE_2);
 	    }
 	    break;
 
 	case mode3:
 	    greenred_state();
-	    if (Timer_Flag[4]) {
-	        displayNB_showTime(a--);
-	        displayDT_showTime(c--);
+
+	    if (Timer_Flag[4]){
+	    	updateLedBuffer(11);
+	    	quet_7SEG();
+	    	a--;
+	    	c--;
 	        setTimer(4, 1000);
 	    }
 	    if(Timer_Flag[5]){
-	    	b=t_yellow;
+	    	a=t_yellow;
 	    	setTimer(5,b*1000);
 	        status = mode4;
 	    }
 	    if (isButton1Pressed(0)) {
 	        status = MODE_2;
-	        display_showMode(MODE_2);
 	    }
 	    break;
 
 	case mode4:
 	    yellowred_state();
+
 	    if (Timer_Flag[4]){
-	        displayNB_showTime(b--);
-	        displayDT_showTime(c--);
+	    	updateLedBuffer(12);
+	    	quet_7SEG();
+	    	a--;
+	    	c--;
 	        setTimer(4, 1000);
 	    }
 	    if(Timer_Flag[5]){
@@ -78,7 +88,6 @@ void fsm_set()
 	    }
 	    if (isButton1Pressed(0)) {
 	        status = MODE_2;
-	        display_showMode(MODE_2);
 	    }
 	    break;
 
